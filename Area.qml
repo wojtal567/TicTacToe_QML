@@ -39,7 +39,7 @@ Item {
         }
         Text {
             id: place
-            text: "X"
+            text: "O"
             anchors.centerIn: parent
             font.pixelSize:  Math.min(parent.height, parent.width)
         }

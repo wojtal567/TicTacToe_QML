@@ -8,7 +8,7 @@ Window {
     height: 480
     visible: true
     id: root
-    property var lineSize: root.width/48
+    property var lineSize: Math.min(root.width/48, root.height/48)
     title: qsTr("Hello World")
     GridLayout {
         anchors{

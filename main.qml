@@ -16,117 +16,231 @@ Window {
             leftMargin: 5
             rightMargin: 5
             bottomMargin: 5
-
             fill: parent
         }
         columns: 5
         columnSpacing: 0
         rowSpacing: 0
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "pink"
-        }
-        Rectangle {
-            Layout.preferredWidth: lineSize
-            Layout.fillHeight: true
-            color: "black"
-            Layout.rowSpan: 5
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "gray"
-        }
-        Rectangle {
-            Layout.preferredWidth: lineSize
-            Layout.fillHeight: true
-            color: "black"
-            Layout.rowSpan: 5
-        }
-
-
 
         Rectangle {
+            id: _00
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: "cyan"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "cyan"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "purple"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "blue"
-        }
 
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "cyan"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "yellow"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            color: "red"
-            Text {
-                id: redClick
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                font.pixelSize: parent.width/2
-                color: "pink"
-                text: "chuj"
-                visible: true
-            }
-            MouseArea{
+            MouseArea {
                 anchors.fill: parent
-                onClicked: {
-                    redClick.visible = !redClick.visible
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
                 }
             }
-       }
+        }
+
+        Rectangle {
+            Layout.preferredWidth: lineSize
+            Layout.fillHeight: true
+            color: "black"
+            Layout.rowSpan: 5
+        }
+
+        Rectangle {
+            id: _10
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
+                }
+            }
+        }
+
+        Rectangle {
+            Layout.preferredWidth: lineSize
+            Layout.fillHeight: true
+            color: "black"
+            Layout.rowSpan: 5
+        }
+
+        Rectangle {
+            id: _20
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
+                }
+            }
+        }
+
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: lineSize
+            color: "black"
+        }
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: lineSize
+            color: "black"
+        }
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: lineSize
+            color: "black"
+        }
+
+        Rectangle {
+            id: _01
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
+                }
+            }
+        }
+        Rectangle {
+            id: _11
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
+                }
+            }
+        }
+        Rectangle {
+            id: _21
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
+                }
+            }
+        }
+
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: lineSize
+            color: "black"
+        }
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: lineSize
+            color: "black"
+        }
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: lineSize
+            color: "black"
+        }
+
+        Rectangle {
+            id: _02
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
+                }
+            }
+        }
+        Rectangle {
+            id: _12
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
+                }
+            }
+        }
+        Rectangle {
+            id: _22
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    insertHover.target = parent
+                    insertHover.start()
+                }
+                onExited: {
+                    exitHover.target = parent
+                    exitHover.start()
+                }
+            }
+        }
+    }
+    ColorAnimation  {
+        id: insertHover
+        alwaysRunToEnd: true
+        property: "color"
+        duration: 100
+        from: "white"
+        to: "lightgray"
+    }
+    ColorAnimation {
+        id: exitHover
+        alwaysRunToEnd: true
+        from: "lightgray"
+        to: "white"
+        property: "color"
+        duration: 100
     }
 }

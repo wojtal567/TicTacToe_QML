@@ -13,7 +13,7 @@ Window {
     GridLayout {
         anchors{
             topMargin: 5
-            leftMargin: 5
+            leftMargin: 9
             rightMargin: 5
             bottomMargin: 5
             fill: parent
@@ -22,23 +22,8 @@ Window {
         columnSpacing: 0
         rowSpacing: 0
 
-        Rectangle {
+        Area {
             id: _00
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
-            }
         }
 
         Rectangle {
@@ -48,22 +33,8 @@ Window {
             Layout.rowSpan: 5
         }
 
-        Rectangle {
+        Area {
             id: _10
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
-            }
         }
 
         Rectangle {
@@ -73,174 +44,50 @@ Window {
             Layout.rowSpan: 5
         }
 
-        Rectangle {
+        Area {
             id: _20
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
+        }
+
+        Repeater
+        {
+            id: firstLineRow
+            model: 3
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.preferredHeight: lineSize
+                color: "black"
             }
         }
 
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-
-        Rectangle {
+        Area {
             id: _01
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
-            }
         }
-        Rectangle {
+        Area {
             id: _11
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
-            }
         }
-        Rectangle {
+        Area {
             id: _21
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
+        }
+
+        Repeater
+        {
+            id: secondLineRow
+            model: 3
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.preferredHeight: lineSize
+                color: "black"
             }
         }
 
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: lineSize
-            color: "black"
-        }
-
-        Rectangle {
+        Area {
             id: _02
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
-            }
         }
-        Rectangle {
+        Area {
             id: _12
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
-            }
         }
-        Rectangle {
+        Area {
             id: _22
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    insertHover.target = parent
-                    insertHover.start()
-                }
-                onExited: {
-                    exitHover.target = parent
-                    exitHover.start()
-                }
-            }
         }
-    }
-    ColorAnimation  {
-        id: insertHover
-        alwaysRunToEnd: true
-        property: "color"
-        duration: 100
-        from: "white"
-        to: "lightgray"
-    }
-    ColorAnimation {
-        id: exitHover
-        alwaysRunToEnd: true
-        from: "lightgray"
-        to: "white"
-        property: "color"
-        duration: 100
     }
 }

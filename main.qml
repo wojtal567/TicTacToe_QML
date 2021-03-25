@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
+import QtGraphicalEffects 1.0
 Window {
 
     width: 640
@@ -23,7 +24,8 @@ Window {
         rowSpacing: 0
 
         Area {
-            id: _00
+            id: _0
+            value: 0
         }
 
         Rectangle {
@@ -34,7 +36,8 @@ Window {
         }
 
         Area {
-            id: _10
+            id: _1
+            value: 1
         }
 
         Rectangle {
@@ -45,7 +48,8 @@ Window {
         }
 
         Area {
-            id: _20
+            id: _2
+            value: 2
         }
 
         Repeater
@@ -60,13 +64,16 @@ Window {
         }
 
         Area {
-            id: _01
+            id: _3
+            value: 3
         }
         Area {
-            id: _11
+            id: _4
+            value: 4
         }
         Area {
-            id: _21
+            id: _5
+            value: 5
         }
 
         Repeater
@@ -81,13 +88,16 @@ Window {
         }
 
         Area {
-            id: _02
+            id: _6
+            value: 6
         }
         Area {
-            id: _12
+            id: _7
+            value: 7
         }
         Area {
-            id: _22
+            id: _8
+            value: 8
         }
     }
 }

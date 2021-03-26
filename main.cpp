@@ -1,7 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <player.h>
-#include <players.h>
+#include <game.h>
 #include <QQmlContext>
 int main(int argc, char *argv[])
 {
@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
 
     Player *ex = new Player('X');
     Player *circle = new Player('O');
-    Players *_players = new Players(ex, circle);
-    engine.rootContext()->setContextProperty("players", _players);
+    Game *_game = new Game(ex, circle);
+    engine.rootContext()->setContextProperty("game", _game);
 
     engine.load(url);
 

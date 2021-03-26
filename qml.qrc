@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Area.qml</file>
+        <file>Blur.qml</file>
+        <file>EndDialogBox.qml</file>
     </qresource>
 </RCC>

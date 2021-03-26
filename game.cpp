@@ -1,48 +1,54 @@
-#include "players.h"
+#include "game.h"
 #include <QDebug>
-Players::Players(Player* x, Player* o)
+Game::Game(Player* x, Player* o)
 {
     this->ex = x;
     this->circle = o;
     this->currentPlayer = this->ex;
     board.resize(3*3);
+    this->count = 0;
+    this->winner = NULL;
 }
 
-Player* Players::getExPlayer()
+Player* Game::getExPlayer()
 {
     return this->ex;
 }
-Player* Players::getCirclePlayer()
+Player* Game::getCirclePlayer()
 {
     return this->circle;
 }
-Player* Players::getCurrentPlayer()
+Player* Game::getCurrentPlayer()
 {
     return this->currentPlayer;
 }
 
-void Players::setExPlayer(Player* newPlayer)
+void Game::setExPlayer(Player* newPlayer)
 {
     this->ex = newPlayer;
 }
 
-void Players::setCirclePlayer(Player* newPlayer)
+void Game::setCirclePlayer(Player* newPlayer)
 {
     this->circle = newPlayer;
 }
-void Players::setCurrentPlayer(Player* newPlayer)
+void Game::setCurrentPlayer(Player* newPlayer)
 {
     this->currentPlayer = newPlayer;
 }
 
-void Players::updateBoard(QString text, int index)
+void Game::updateBoard(QString text, int index)
 {
     this->board[index] = text;
-    checkWinner();
+    this->count++;
 }
 
+Player* Game::getWinner()
+{
+    return this->winner;
+}
 
-void Players::checkWinner()
+bool Game::checkWinner()
 {
     int size = 3;
     bool winned = true;
@@ -67,7 +73,8 @@ void Players::checkWinner()
     if(winned)
     {
         qDebug() <<"Winned1";
-        return;
+        this->winner = this->currentPlayer;
+        return true;
     }
     int col = 0;
     do
@@ -88,7 +95,8 @@ void Players::checkWinner()
     if(winned)
     {
         qDebug()<<"Winned2";
-        return;
+        this->winner = this->currentPlayer;
+        return true;
     }
     winned=true;
     QList<QString> arr;
@@ -106,7 +114,8 @@ void Players::checkWinner()
     if(winned)
     {
         qDebug()<<"Winned3";
-        return;
+        this->winner = this->currentPlayer;
+        return true;
     }
     winned = true;
     arr.clear();
@@ -122,6 +131,11 @@ void Players::checkWinner()
     if(winned)
     {
         qDebug()<<"Wygraned3";
-        return;
+        this->winner = this->currentPlayer;
+        return true;
     }
+    if(this->count == 9)
+        return true;
+    else
+        return false;
 }

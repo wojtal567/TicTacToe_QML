@@ -6,6 +6,7 @@ Item {
     property var placed: place.text
     id: root
     property var value: parent.value
+    property var mouseAreaEnabled: parent.mouseAreaEnabled
     Rectangle {
         id: rect_
         anchors
@@ -21,6 +22,7 @@ Item {
             id: area
             anchors.fill: parent
             hoverEnabled: true
+            enabled: root.mouseAreaEnabled
             onEntered: {
                 insertHover.start()
             }
@@ -39,18 +41,26 @@ Item {
             onClicked: {
                 if(place.text == "")
                 {
-                    place.text = players.currentPlayer.sign
-                    if(players.currentPlayer === players.exPlayer)
+                    place.text = game.currentPlayer.sign
+                    game.updateBoard(place.text, root.value)
+                    if(game.checkWinner())
                     {
-                        players.currentPlayer = players.circlePlayer
+                        layout.mouseAreaEnabled = false;
+                        exitHover.start();
+                        blur.animation.running = true
+                        dialogLoader.source = "EndDialogBox.qml"
+
+                        loaderItem.textInfo.text = "Game ended\nPlayer " + game.winner.sign + " won\nDo you want to play again?"
                     }
+                    if(game.currentPlayer === game.exPlayer)
+                        game.currentPlayer = game.circlePlayer
                     else
-                        players.currentPlayer = players.exPlayer
-                }else
+                        game.currentPlayer = game.exPlayer
+                }
+                else
                 {
                     placeTaken.start()
                 }
-                players.updateBoard(place.text, root.value)
             }
         }
         Text {
@@ -129,3 +139,4 @@ Item {
         property: "color"
     }
 }
+

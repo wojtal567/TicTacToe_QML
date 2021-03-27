@@ -115,6 +115,7 @@ Rectangle {
                 gameLoader.source = "GameLayout.qml"
                 blur.stopAnimation.running = true
                 dialogLoader.source = ""
+                game.resetGame()
             }
         }
     }

@@ -24,7 +24,7 @@ public:
     void setExPlayer(Player* newPlayer);
     void setCirclePlayer(Player* newPlayer);
     void setCurrentPlayer(Player* newPlayer);
-
+    Q_INVOKABLE void resetGame();
 private:
     Player *currentPlayer;
     Player *ex;

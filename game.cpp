@@ -139,3 +139,12 @@ bool Game::checkWinner()
     else
         return false;
 }
+
+void Game::resetGame()
+{
+    this->currentPlayer = this->ex;
+    board.clear();
+    board.resize(3*3);
+    this->count = 0;
+    this->winner = NULL;
+}

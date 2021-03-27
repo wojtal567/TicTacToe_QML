@@ -4,5 +4,6 @@
         <file>Area.qml</file>
         <file>Blur.qml</file>
         <file>EndDialogBox.qml</file>
+        <file>GameLayout.qml</file>
     </qresource>
 </RCC>

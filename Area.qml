@@ -47,10 +47,12 @@ Item {
                     {
                         layout.mouseAreaEnabled = false;
                         exitHover.start();
-                        blur.animation.running = true
+                        blur.startAnimation.running = true
                         dialogLoader.source = "EndDialogBox.qml"
-
-                        loaderItem.textInfo.text = "Game ended\nPlayer " + game.winner.sign + " won\nDo you want to play again?"
+                        if(game.winner === null)
+                            loaderItem.textInfo.text = "Game ended\nDraw\nDo you want to play again?"
+                        else
+                            loaderItem.textInfo.text = "Game ended\nPlayer " + game.winner.sign + " won\nDo you want to play again?"
                     }
                     if(game.currentPlayer === game.exPlayer)
                         game.currentPlayer = game.circlePlayer

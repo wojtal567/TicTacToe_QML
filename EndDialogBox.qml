@@ -43,6 +43,32 @@ Rectangle {
             font.pixelSize: Math.min(parent.height/2, parent.width/2)
             anchors.centerIn: parent
         }
+        MouseArea{
+            anchors.fill:  parent
+            hoverEnabled: true
+            onEntered: {
+                buttonEnter.target = noButton
+                buttonEnter.running = true
+            }
+            onExited: {
+                buttonExit.target = noButton
+                buttonExit.running = true
+            }
+            onPressed: {
+                buttonPressed.target = noButton
+                buttonPressed.running = true
+            }
+            onReleased: {
+                if(containsMouse)
+                {
+                    buttonReleased.target = noButton
+                    buttonReleased.running = true
+                }
+            }
+            onClicked: {
+                Qt.quit()
+            }
+        }
     }
     Rectangle {
         id: yesButton
@@ -64,7 +90,57 @@ Rectangle {
         }
         MouseArea{
             anchors.fill:  parent
-            onClicked: console.log(dialogBox.scale)
+            hoverEnabled: true
+            onEntered: {
+                buttonEnter.target = yesButton
+                buttonEnter.running = true
+            }
+            onExited: {
+                buttonExit.target = yesButton
+                buttonExit.running = true
+            }
+            onPressed: {
+                buttonPressed.target = yesButton
+                buttonPressed.running = true
+            }
+            onReleased: {
+                if(containsMouse)
+                {
+                    buttonReleased.target = yesButton
+                    buttonReleased.running = true
+                }
+            }
+            onClicked: {
+                gameLoader.source = ""
+                gameLoader.source = "GameLayout.qml"
+                blur.stopAnimation.running = true
+                dialogLoader.source = ""
+            }
         }
     }
+    ColorAnimation {
+        property: "color"
+        id: buttonEnter
+        to: "#a3a3a3"
+        duration: 200
+    }
+    ColorAnimation {
+        property: "color"
+        id: buttonExit
+        to: "#e0e0e0"
+        duration: 200
+    }
+    ColorAnimation {
+        property: "color"
+        id: buttonPressed
+        to: "#7a7a7a"
+        duration: 200
+    }
+    ColorAnimation {
+        property: "color"
+        id: buttonReleased
+        to: "#a3a3a3"
+        duration: 200
+    }
+
 }

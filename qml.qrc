@@ -5,5 +5,6 @@
         <file>Blur.qml</file>
         <file>EndDialogBox.qml</file>
         <file>GameLayout.qml</file>
+        <file>images/background.png</file>
     </qresource>
 </RCC>

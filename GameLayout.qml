@@ -9,19 +9,32 @@ Item{
         color: "black"
         anchors.fill: parent
     }
+    Rectangle{
+        color: "white"
+        width: parent.width
+        height: parent.height*0.05
+        id: currentPlayerInfo
+        Text {
+            text: game.currentPlayer.sign
+        }
+    }
+
 
     GridLayout {
         id: layout
         property var mouseAreaEnabled: true
         anchors{
-            fill: parent
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            top: currentPlayerInfo.bottom
         }
-        columns: 4
+        columns: game.boardSize
         columnSpacing: 0
         rowSpacing: 0
 
         Repeater {
-            model: 16
+            model: game.boardSize*game.boardSize
             Area
             {
                 value: index

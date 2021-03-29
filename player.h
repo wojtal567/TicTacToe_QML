@@ -5,13 +5,15 @@
 class Player : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QChar sign READ getSign WRITE setSign)
+    Q_PROPERTY(QChar sign READ getSign WRITE setSign NOTIFY signChanged)
 
 public:
     Player(QChar _sign);
 
     QChar getSign() const;
     void setSign(QChar _sign);
+signals:
+    void signChanged();
 private:
     QChar sign;
 };

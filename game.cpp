@@ -5,9 +5,10 @@ Game::Game(Player* x, Player* o)
     this->ex = x;
     this->circle = o;
     this->currentPlayer = this->ex;
-    board.resize(3*3);
+//    board.resize(3*3);
     this->count = 0;
     this->winner = NULL;
+    this->boardSize = 0;
 }
 
 Player* Game::getExPlayer()
@@ -35,6 +36,7 @@ void Game::setCirclePlayer(Player* newPlayer)
 void Game::setCurrentPlayer(Player* newPlayer)
 {
     this->currentPlayer = newPlayer;
+    emit currentPlayerChanged();
 }
 
 void Game::updateBoard(QString text, int index)
@@ -50,15 +52,14 @@ Player* Game::getWinner()
 
 bool Game::checkWinner()
 {
-    int size = 3;
     bool winned = true;
     int row = 0;
     do
     {
         QList<QString> col_arr;
-        for(int col = 0; col<size ; col++)
+        for(int col = 0; col<this->boardSize; col++)
         {
-            col_arr.append(board[size*row+col]);
+            col_arr.append(board[this->boardSize*row+col]);
         }
         winned = true;
         for(int i=0; i< col_arr.size(); i++)
@@ -69,7 +70,7 @@ bool Game::checkWinner()
             }
         }
         row++;
-    }while(!winned && row<size);
+    }while(!winned && row<this->boardSize);
     if(winned)
     {
         qDebug() <<"Winned1";
@@ -80,10 +81,10 @@ bool Game::checkWinner()
     do
     {
         QList<QString> row_arr;
-        for(int row = 0; row<size; row++)
+        for(int row = 0; row<this->boardSize; row++)
         {
             winned = true;
-            row_arr.append(board[size*row+col]);
+            row_arr.append(board[this->boardSize*row+col]);
         }
         for(int i=0; i< row_arr.size(); i++)
         {
@@ -91,7 +92,7 @@ bool Game::checkWinner()
                 winned = false;
         }
         col++;
-    }while(!winned && col <size);
+    }while(!winned && col <this->boardSize);
     if(winned)
     {
         qDebug()<<"Winned2";
@@ -100,9 +101,9 @@ bool Game::checkWinner()
     }
     winned=true;
     QList<QString> arr;
-    for(int i=0; i<size; i++)
+    for(int i=0; i<this->boardSize; i++)
     {
-        arr.append(board[size*i+i]);
+        arr.append(board[this->boardSize*i+i]);
     }
     int i=1;
     do
@@ -119,9 +120,9 @@ bool Game::checkWinner()
     }
     winned = true;
     arr.clear();
-    for(int i=1; i<=size; i++)
+    for(int i=1; i<=this->boardSize; i++)
     {
-        arr.append(board[i*size-i]);
+        arr.append(board[i*this->boardSize-i]);
     }
     for(int i=1; i<arr.size(); i++)
     {
@@ -134,17 +135,31 @@ bool Game::checkWinner()
         this->winner = this->currentPlayer;
         return true;
     }
-    if(this->count == 9)
+    if(this->count == this->boardSize*this->boardSize)
         return true;
     else
         return false;
+}
+
+
+int Game::getBoardSize()
+{
+    return this->boardSize;
+}
+
+void Game::setBoardSize(int newSize)
+{
+    this->boardSize = newSize;
+    board.clear();
+    board.resize(this->boardSize*this->boardSize);
+    emit boardSizeChanged();
 }
 
 void Game::resetGame()
 {
     this->currentPlayer = this->ex;
     board.clear();
-    board.resize(3*3);
+    board.resize(this->boardSize*this->boardSize);
     this->count = 0;
     this->winner = NULL;
 }

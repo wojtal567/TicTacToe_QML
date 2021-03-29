@@ -12,4 +12,5 @@ QChar Player::getSign() const
 void Player::setSign(QChar _sign)
 {
     this->sign = _sign;
+    emit signChanged();
 }

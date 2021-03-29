@@ -16,7 +16,7 @@ Window {
     Loader {
         id: gameLoader
         property alias layout: gameLoader.item
-        source: "GameLayout.qml"
+        source: "SetSizeWindow.qml"
         anchors.fill: parent
     }
 

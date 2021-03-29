@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     Player *ex = new Player('X');
     Player *circle = new Player('O');
     Game *_game = new Game(ex, circle);
+    _game->setBoardSize(4);
     engine.rootContext()->setContextProperty("game", _game);
 
     engine.load(url);

@@ -15,7 +15,8 @@ Item{
         height: parent.height*0.05
         id: currentPlayerInfo
         Text {
-            text: game.currentPlayer.sign
+            text: "Current player: " + game.currentPlayer.sign
+            font.pixelSize: parent.height-2
         }
     }
 

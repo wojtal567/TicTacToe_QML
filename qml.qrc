@@ -6,5 +6,6 @@
         <file>EndDialogBox.qml</file>
         <file>GameLayout.qml</file>
         <file>SetSizeWindow.qml</file>
+        <file>ResizeDialogBox.qml</file>
     </qresource>
 </RCC>

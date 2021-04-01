@@ -12,6 +12,7 @@ class Game : public QObject
     Q_PROPERTY(Player* exPlayer READ getExPlayer)
     Q_PROPERTY(Player* circlePlayer READ getCirclePlayer)
     Q_PROPERTY(int boardSize READ getBoardSize WRITE setBoardSize NOTIFY boardSizeChanged)
+    Q_PROPERTY(int moveCount READ getMoveCount NOTIFY moveCountChanged)
     Q_PROPERTY(Player* winner READ getWinner)
 public:
     Game(Player* x, Player* o);
@@ -27,9 +28,11 @@ public:
     void setExPlayer(Player* newPlayer);
     void setCirclePlayer(Player* newPlayer);
     void setCurrentPlayer(Player* newPlayer);
+    int getMoveCount();
     Q_INVOKABLE void resetGame();
 signals:
     void currentPlayerChanged();
+    void moveCountChanged();
     void boardSizeChanged();
 private:
     Player *currentPlayer;

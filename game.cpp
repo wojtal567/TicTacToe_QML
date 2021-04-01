@@ -43,6 +43,7 @@ void Game::updateBoard(QString text, int index)
 {
     this->board[index] = text;
     this->count++;
+    emit moveCountChanged();
 }
 
 Player* Game::getWinner()
@@ -161,5 +162,11 @@ void Game::resetGame()
     board.clear();
     board.resize(this->boardSize*this->boardSize);
     this->count = 0;
+    emit moveCountChanged();
     this->winner = NULL;
+}
+
+int Game::getMoveCount()
+{
+    return this->count;
 }

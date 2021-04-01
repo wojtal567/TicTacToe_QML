@@ -3,6 +3,7 @@
 #include <player.h>
 #include <game.h>
 #include <QQmlContext>
+#include <QIcon>
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
 
-
+    app.setWindowIcon(QIcon(":/images/icon.png"));
     Player *ex = new Player('X');
     Player *circle = new Player('O');
     Game *_game = new Game(ex, circle);

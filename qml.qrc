@@ -7,5 +7,6 @@
         <file>GameLayout.qml</file>
         <file>SetSizeWindow.qml</file>
         <file>ResizeDialogBox.qml</file>
+        <file>images/icon.png</file>
     </qresource>
 </RCC>

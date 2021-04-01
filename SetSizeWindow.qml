@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.11
 import QtQuick.Controls 2.12
 Item {
     id: windowRoot
@@ -31,6 +31,7 @@ Item {
             }
         }
     }
+
     Rectangle {
         color: "#e0e0e0"
         height: parent.height/12

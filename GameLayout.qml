@@ -18,6 +18,13 @@ Item{
             text: "Current player: " + game.currentPlayer.sign
             font.pixelSize: parent.height-2
         }
+        Text {
+            text: "Moves: " + game.moveCount
+            font.pixelSize: parent.height-2
+            anchors{
+                right: parent.right
+            }
+        }
     }
 
 

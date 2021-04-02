@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Controls 2.12
+import QtQuick.Controls 2.15
 Rectangle {
     id: dialogBox
     color: "white"
@@ -11,7 +11,7 @@ Rectangle {
         width: dialogBox.width/64
     }
     radius: width/32
-    width: root.width/2
+    width: (resizeText.width+dialogSpinBox.width)*1.2
     height: root.height/3
     Text{
         id: resizeText
@@ -22,7 +22,7 @@ Rectangle {
             topMargin: 20
         }
         text: "Board size: "
-        font.pixelSize: Math.min(dialogBox.height/7, dialogBox.width/14)
+        font.pixelSize:dialogBox.parent.parent.width/20
     }
     SpinBox {
         id: dialogSpinBox
@@ -30,6 +30,36 @@ Rectangle {
         from: 3
         editable: true
         to: 40
+        height: resizeText.height*1.1
+        width: resizeText.width/2
+        font.pixelSize: resizeText.font.pixelSize/2
+
+        up.indicator: Rectangle {
+                height: parent.height
+                anchors.right: parent.right
+                anchors.top: parent.top
+                implicitHeight: 40
+                implicitWidth: parent.width/3
+                color: dialogSpinBox.up.pressed ? "#bdbdbd" : "#e0e0e0"
+                Text {
+                    text: '+'
+                    anchors.centerIn: parent
+                    color: enabled ? "#26282a" : "#bdbdbd"
+                }
+            }
+            down.indicator: Rectangle {
+                height: parent.height
+                anchors.left: parent.left
+                anchors.top: parent.top
+                implicitHeight: 40
+                implicitWidth: parent.width/3
+                color: dialogSpinBox.down.pressed ? "#bdbdbd" : "#e0e0e0"
+                Text {
+                    text: '-'
+                    anchors.centerIn: parent
+                    color: enabled ? "#26282a" : "#bdbdbd"
+                }
+            }
         anchors{
             verticalCenter: resizeText.verticalCenter
             left: resizeText.right
@@ -46,8 +76,8 @@ Rectangle {
         anchors {
             right: dialogBox.right
             bottom: dialogBox.bottom
-            bottomMargin: dialogBox.border.width+2
-            rightMargin: dialogBox.border.width
+            bottomMargin: dialogBox.border.width*1.2
+            rightMargin: dialogBox.border.width*1.2
         }
         Text {
             text: "Play"

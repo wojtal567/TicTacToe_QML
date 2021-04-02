@@ -5,12 +5,15 @@ Item {
     Column{
         x: 30; y: 20
         spacing: windowRoot.height/10
+        width: parent.width
         Text {
+            width: parent.width-parent.x
+            wrapMode: Text.WordWrap
             text: "Welcome to the TicTacToe game.
                     \nSet the size of the game.
                     \nNote that the winner is the player who place marks in the all of the vertical, horizontal or diagonal row.
                     \nHave fun!"
-            font.pixelSize: Math.min(windowRoot.height/35, windowRoot.width/50)
+            font.pixelSize: windowRoot.height/35
         }
 
         Row{
@@ -18,7 +21,7 @@ Item {
             Text {
                 anchors.verticalCenter: spinbox.verticalCenter
                 text: "Board size: "
-                font.pixelSize: Math.min(windowRoot.height/35, windowRoot.width/50)
+                font.pixelSize: windowRoot.height/35
 
             }
 

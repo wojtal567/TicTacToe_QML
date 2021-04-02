@@ -16,11 +16,11 @@ Item{
         id: currentPlayerInfo
         Text {
             text: "Current player: " + game.currentPlayer.sign
-            font.pixelSize: parent.height-2
+            font.pixelSize: Math.min(parent.height-2, parent.width/13)
         }
         Text {
             text: "Moves: " + game.moveCount
-            font.pixelSize: parent.height-2
+            font.pixelSize: Math.min(parent.height-2, parent.width/13)
             anchors{
                 right: parent.right
             }

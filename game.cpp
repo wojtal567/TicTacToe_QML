@@ -5,7 +5,6 @@ Game::Game(Player* x, Player* o)
     this->ex = x;
     this->circle = o;
     this->currentPlayer = this->ex;
-//    board.resize(3*3);
     this->count = 0;
     this->winner = NULL;
     this->boardSize = 0;

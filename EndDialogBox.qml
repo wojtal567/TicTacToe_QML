@@ -111,11 +111,7 @@ Rectangle {
                 }
             }
             onClicked: {
-//                gameLoader.source = ""
-//                gameLoader.source = "GameLayout.qml"
-//                blur.stopAnimation.running = true
                 dialogLoader.source = "ResizeDialogBox.qml"
-//                game.resetGame()
             }
         }
     }

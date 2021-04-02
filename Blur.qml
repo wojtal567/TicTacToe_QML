@@ -7,7 +7,6 @@ FastBlur {
     id: blur
     source: gameLoader.layout
     anchors.fill: gameLoader
-    //radius: 64
     property alias startAnimation: blur_start_animation
     property alias stopAnimation: blur_stop_animation
     NumberAnimation {

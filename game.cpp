@@ -73,7 +73,6 @@ bool Game::checkWinner()
     }while(!winned && row<this->boardSize);
     if(winned)
     {
-        qDebug() <<"Winned1";
         this->winner = this->currentPlayer;
         return true;
     }
@@ -95,7 +94,6 @@ bool Game::checkWinner()
     }while(!winned && col <this->boardSize);
     if(winned)
     {
-        qDebug()<<"Winned2";
         this->winner = this->currentPlayer;
         return true;
     }
@@ -114,7 +112,6 @@ bool Game::checkWinner()
     }while(i<arr.size());
     if(winned)
     {
-        qDebug()<<"Winned3";
         this->winner = this->currentPlayer;
         return true;
     }
@@ -131,7 +128,6 @@ bool Game::checkWinner()
     }
     if(winned)
     {
-        qDebug()<<"Wygraned3";
         this->winner = this->currentPlayer;
         return true;
     }

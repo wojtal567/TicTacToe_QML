@@ -15,7 +15,7 @@ public:
 signals:
     void signChanged();
 private:
-    QChar sign;
+    QChar m_sign;
 };
 
 #endif // PLAYER_H

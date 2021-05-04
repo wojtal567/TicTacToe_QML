@@ -16,7 +16,7 @@ class Game : public QObject
     Q_PROPERTY(Player* winner READ getWinner)
 public:
     Game(Player* x, Player* o);
-
+    ~Game();
     Q_INVOKABLE void updateBoard(QString text, int index);
     Q_INVOKABLE bool checkWinner();
     Player* getExPlayer();
@@ -35,13 +35,13 @@ signals:
     void moveCountChanged();
     void boardSizeChanged();
 private:
-    Player *currentPlayer;
-    Player *ex;
-    Player *circle;
-    Player *winner;
-    QVector<QString> board;
-    int count;
-    int boardSize;
+    Player *m_currentPlayer;
+    Player *m_ex;
+    Player *m_circle;
+    Player *m_winner;
+    QVector<QString> m_board;
+    int m_count;
+    int m_boardSize;
 };
 
 #endif // GAME_H

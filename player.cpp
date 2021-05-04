@@ -1,16 +1,16 @@
 #include "player.h"
 
-Player::Player(QChar _sign)
+Player::Player(QChar sign)
 {
-    this->sign = _sign;
+    m_sign = sign;
 }
 
 QChar Player::getSign() const
 {
-    return this->sign;
+    return m_sign;
 }
-void Player::setSign(QChar _sign)
+void Player::setSign(QChar sign)
 {
-    this->sign = _sign;
+    m_sign = sign;
     emit signChanged();
 }
